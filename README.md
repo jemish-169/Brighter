@@ -1,1 +1,1 @@
-# Brighter is Android Photo Editing application.
+# Brighter is Photo Editing application for Android devices.
