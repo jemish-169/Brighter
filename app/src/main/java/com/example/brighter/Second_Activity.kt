@@ -20,14 +20,12 @@ class Second_Activity : AppCompatActivity() {
             finish()
         }
         sharebutton.setOnClickListener {
-            val sendIntent: Intent = Intent().apply {
-                action = Intent.ACTION_SEND
-                putExtra(Intent.EXTRA_TEXT, "share via.")
-                type = "*/*"
-            }
-
-            val shareIntent = Intent.createChooser(sendIntent, null)
-            startActivity(shareIntent)
+            val intent= Intent()
+            intent.action=Intent.ACTION_SEND
+            intent.putExtra(Intent.EXTRA_TEXT,"Hey! Check out This image, edited with Brighter app.")
+            intent.putExtra(Intent.EXTRA_STREAM,imgRes)
+            intent.type="image/jpeg"
+            startActivity(Intent.createChooser(intent,"Share Via:"))
         }
     }
 }
