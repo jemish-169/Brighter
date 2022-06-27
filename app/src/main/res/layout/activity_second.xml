@@ -4,26 +4,27 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#2C2C2C"
+    android:background="#000000"
     tools:context=".Second_Activity">
 
     <ImageView
         android:id="@+id/backButton"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:background="@drawable/grey_oval"
-        android:scaleType="fitEnd"
+        android:scaleType="fitXY"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_left_arrow" />
+        app:srcCompat="@drawable/ic_new_left_arrow"
+        app:tint="@color/black" />
 
     <ImageView
         android:id="@+id/imageView3"
         android:layout_width="350dp"
         android:layout_height="350dp"
-        android:scaleType="centerInside"
+        android:scaleType="centerCrop"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
