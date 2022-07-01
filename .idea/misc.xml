@@ -3,7 +3,9 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Jemish/AndroidStudioProjects/Brighter/app/src/main/res/drawable-anydpi/ic_new_left_arrow.xml" value="0.2075" />
         <entry key="..\:/Users/Jemish/AndroidStudioProjects/Brighter/app/src/main/res/drawable-anydpi/ic_settings.xml" value="0.2265" />
+        <entry key="..\:/Users/Jemish/AndroidStudioProjects/Brighter/app/src/main/res/drawable-anydpi/ic_share_button.xml" value="0.2075" />
         <entry key="..\:/Users/Jemish/AndroidStudioProjects/Brighter/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.2265" />
         <entry key="..\:/Users/Jemish/AndroidStudioProjects/Brighter/app/src/main/res/drawable/gradient_blue.xml" value="0.2265" />
         <entry key="..\:/Users/Jemish/AndroidStudioProjects/Brighter/app/src/main/res/drawable/gradient_red.xml" value="0.2265" />
@@ -14,8 +16,11 @@
         <entry key="..\:/Users/Jemish/AndroidStudioProjects/Brighter/app/src/main/res/drawable/ic_magic_wand.xml" value="0.2265" />
         <entry key="..\:/Users/Jemish/AndroidStudioProjects/Brighter/app/src/main/res/drawable/ic_share.xml" value="0.2075" />
         <entry key="..\:/Users/Jemish/AndroidStudioProjects/Brighter/app/src/main/res/layout/activity_main.xml" value="0.25" />
-        <entry key="..\:/Users/Jemish/AndroidStudioProjects/Brighter/app/src/main/res/layout/activity_second.xml" value="0.27447916666666666" />
+        <entry key="..\:/Users/Jemish/AndroidStudioProjects/Brighter/app/src/main/res/layout/activity_second.xml" value="0.2" />
         <entry key="..\:/Users/Jemish/AndroidStudioProjects/Brighter/app/src/main/res/layout/activity_splash_screen.xml" value="0.264945652173913" />
+        <entry key="..\:/Users/Jemish/AndroidStudioProjects/Brighter/app/src/main/res/layout/dialouge_box.xml" value="0.264945652173913" />
+        <entry key="..\:/Users/Jemish/AndroidStudioProjects/Brighter/app/src/main/res/layout/logout_dialogbox.xml" value="0.264945652173913" />
+        <entry key="..\:/Users/Jemish/AndroidStudioProjects/Brighter/app/src/main/res/layout/share_layout.xml" value="0.264945652173913" />
       </map>
     </option>
   </component>

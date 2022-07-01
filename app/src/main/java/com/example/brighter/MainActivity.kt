@@ -1,19 +1,25 @@
 package com.example.brighter
 
 import android.Manifest
-import android.app.Activity
+import android.app.AlertDialog
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.Bitmap
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
-import android.widget.Toast
+import android.view.LayoutInflater
+import android.view.View
+import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import com.dsphotoeditor.sdk.activity.DsPhotoEditorActivity
 import com.dsphotoeditor.sdk.utils.DsPhotoEditorConstants
 import com.example.brighter.databinding.ActivityMainBinding
+import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.MobileAds
 import kotlinx.android.synthetic.main.activity_main.*
 import java.io.ByteArrayOutputStream
 
@@ -29,26 +35,46 @@ class MainActivity : AppCompatActivity() {
         activityMainBinding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(activityMainBinding.root)
 
-        requestPermission()
+        MobileAds.initialize(this) {}
 
-        ivEditPhoto.setOnClickListener {
-            Intent(Intent.ACTION_GET_CONTENT).also {
-                it.type = "image/*"
-                startActivityForResult(it, GALLERY_CODE)
+        val adRequest = AdRequest.Builder().build()
+        adView.loadAd(adRequest)
+
+        requestPermission()
+        btn_start.setOnClickListener {
+            var builder = AlertDialog.Builder(this@MainActivity)
+            var view: View =
+                LayoutInflater.from(this@MainActivity).inflate(R.layout.dialouge_box, null)
+            builder.setView(view)
+            var dialog = builder.create()
+            dialog.window!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+            dialog.setCancelable(true)
+            dialog.show()
+
+            var cameraButton: ImageView = view.findViewById(R.id.btn_camera)
+            var galleryButton: ImageView = view.findViewById(R.id.btn_gallery)
+
+
+            galleryButton.setOnClickListener {
+                dialog.dismiss()
+                Intent(Intent.ACTION_GET_CONTENT).also {
+                    it.type = "image/*"
+                    startActivityForResult(it, GALLERY_CODE)
+                }
+            }
+            cameraButton.setOnClickListener {
+                dialog.dismiss()
+                var cameraIntent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
+                startActivityForResult(cameraIntent, CAMERA_CODE)
+
             }
         }
-        ivTakePhoto.setOnClickListener {
-            var cameraIntent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
-            startActivityForResult(cameraIntent, CAMERA_CODE)
-
-        }
     }
-
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
 
-        if (resultCode == Activity.RESULT_OK && requestCode == GALLERY_CODE && (data?.data != null)) {
+        if (resultCode == RESULT_OK && requestCode == GALLERY_CODE && (data?.data != null)) {
 
             val uri: Uri? = data?.data
             var dsPhotoEditorIntent = Intent(this, DsPhotoEditorActivity::class.java)
@@ -57,31 +83,28 @@ class MainActivity : AppCompatActivity() {
                 DsPhotoEditorConstants.DS_PHOTO_EDITOR_OUTPUT_DIRECTORY,
                 "Brighter"
             )
+            dsPhotoEditorIntent.putExtra(
+                DsPhotoEditorConstants.DS_TOOL_BAR_BACKGROUND_COLOR,
+                R.color.luxurious
+            )
+            dsPhotoEditorIntent.putExtra(
+                DsPhotoEditorConstants.DS_MAIN_BACKGROUND_COLOR,
+                R.color.white
+            )
 
             val toolsToHide = intArrayOf(
-                DsPhotoEditorActivity.TOOL_WARMTH,
-                DsPhotoEditorActivity.TOOL_SATURATION,
-                DsPhotoEditorActivity.TOOL_VIGNETTE,
-                DsPhotoEditorActivity.TOOL_EXPOSURE
+                DsPhotoEditorActivity.TOOL_TEXT,
+                DsPhotoEditorActivity.TOOL_STICKER
             )
 
             dsPhotoEditorIntent.putExtra(
                 DsPhotoEditorConstants.DS_PHOTO_EDITOR_TOOLS_TO_HIDE,
                 toolsToHide
             )
+
             startActivityForResult(dsPhotoEditorIntent, RESULT_CODE)
         }
-
-        if (resultCode == Activity.RESULT_OK && requestCode == RESULT_CODE) {
-            val uri = data?.data
-            Intent(this, Second_Activity::class.java).also {
-                it.putExtra("ImageUri", uri)
-                Toast.makeText(this, "Image Saved!", Toast.LENGTH_SHORT).show()
-                startActivity(it)
-            }
-        }
-
-        if (resultCode == Activity.RESULT_OK && requestCode == CAMERA_CODE) {
+        if (resultCode == RESULT_OK && requestCode == CAMERA_CODE) {
             val photo: Bitmap = data?.extras?.get("data") as Bitmap
             val bytes = ByteArrayOutputStream()
             photo.compress(Bitmap.CompressFormat.JPEG, 100, bytes)
@@ -96,12 +119,18 @@ class MainActivity : AppCompatActivity() {
                 DsPhotoEditorConstants.DS_PHOTO_EDITOR_OUTPUT_DIRECTORY,
                 "Brighter"
             )
+            dsPhotoEditorIntent.putExtra(
+                DsPhotoEditorConstants.DS_TOOL_BAR_BACKGROUND_COLOR,
+                R.color.luxurious
+            )
+            dsPhotoEditorIntent.putExtra(
+                DsPhotoEditorConstants.DS_MAIN_BACKGROUND_COLOR,
+                R.color.white
+            )
 
             val toolsToHide = intArrayOf(
-                DsPhotoEditorActivity.TOOL_WARMTH,
-                DsPhotoEditorActivity.TOOL_SATURATION,
-                DsPhotoEditorActivity.TOOL_VIGNETTE,
-                DsPhotoEditorActivity.TOOL_EXPOSURE
+                DsPhotoEditorActivity.TOOL_TEXT,
+                DsPhotoEditorActivity.TOOL_STICKER
             )
 
             dsPhotoEditorIntent.putExtra(
@@ -109,6 +138,13 @@ class MainActivity : AppCompatActivity() {
                 toolsToHide
             )
             startActivityForResult(dsPhotoEditorIntent, RESULT_CODE)
+        }
+        if (resultCode == RESULT_OK && requestCode == RESULT_CODE) {
+            val uri = data?.data
+            Intent(this, Second_Activity::class.java).also {
+                it.putExtra("ImageUri", uri)
+                startActivity(it)
+            }
         }
     }
 
