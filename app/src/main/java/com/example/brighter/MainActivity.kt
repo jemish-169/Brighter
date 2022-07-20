@@ -13,6 +13,7 @@ import android.provider.MediaStore
 import android.view.LayoutInflater
 import android.view.View
 import android.widget.ImageView
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import com.dsphotoeditor.sdk.activity.DsPhotoEditorActivity
@@ -22,6 +23,7 @@ import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.MobileAds
 import kotlinx.android.synthetic.main.activity_main.*
 import java.io.ByteArrayOutputStream
+
 
 class MainActivity : AppCompatActivity() {
 
@@ -71,6 +73,27 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    override fun onBackPressed() {
+        var builder = AlertDialog.Builder(this)
+        var view: View =
+            LayoutInflater.from(this).inflate(R.layout.exit_app, null)
+        builder.setView(view)
+        var dialog = builder.create()
+        dialog.window!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+        dialog.setCancelable(true)
+        dialog.show()
+
+        var btnNo: TextView = view.findViewById(R.id.btn_no)
+        var btnYes: TextView = view.findViewById(R.id.btn_yes)
+
+        btnNo.setOnClickListener {
+            dialog.dismiss()
+        }
+        btnYes.setOnClickListener {
+            finish()
+        }
+    }
+
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
 
@@ -89,12 +112,13 @@ class MainActivity : AppCompatActivity() {
             )
             dsPhotoEditorIntent.putExtra(
                 DsPhotoEditorConstants.DS_MAIN_BACKGROUND_COLOR,
-                R.color.white
+                R.color.purple_200
             )
 
             val toolsToHide = intArrayOf(
                 DsPhotoEditorActivity.TOOL_TEXT,
-                DsPhotoEditorActivity.TOOL_STICKER
+                DsPhotoEditorActivity.TOOL_FRAME,
+                DsPhotoEditorActivity.TOOL_PIXELATE,
             )
 
             dsPhotoEditorIntent.putExtra(
@@ -125,12 +149,13 @@ class MainActivity : AppCompatActivity() {
             )
             dsPhotoEditorIntent.putExtra(
                 DsPhotoEditorConstants.DS_MAIN_BACKGROUND_COLOR,
-                R.color.white
+                R.color.purple_200
             )
 
             val toolsToHide = intArrayOf(
                 DsPhotoEditorActivity.TOOL_TEXT,
-                DsPhotoEditorActivity.TOOL_STICKER
+                DsPhotoEditorActivity.TOOL_FRAME,
+                DsPhotoEditorActivity.TOOL_PIXELATE,
             )
 
             dsPhotoEditorIntent.putExtra(

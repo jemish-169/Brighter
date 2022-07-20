@@ -13,7 +13,7 @@ class SplashScreen : AppCompatActivity() {
             override fun run() {
                 try {
                     // Thread will sleep for 4 seconds
-                    sleep(3 * 850.toLong())
+                    sleep(3 * 780.toLong())
                     var intent = Intent(applicationContext, MainActivity::class.java)
                     startActivity(intent)
                     finish()

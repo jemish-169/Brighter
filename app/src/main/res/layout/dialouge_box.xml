@@ -41,7 +41,7 @@
                     android:layout_gravity="center"
                     android:layout_weight="1"
                     android:src="@drawable/ic_camera"
-                    app:tint="#FF0050D6" />
+                    app:tint="#0000FF" />
 
                 <ImageView
                     android:id="@+id/btn_gallery"
@@ -50,7 +50,7 @@
                     android:layout_gravity="center"
                     android:layout_weight="1"
                     android:src="@drawable/ic_gallary"
-                    app:tint="#FF0050D6" />
+                    app:tint="#0000FF" />
             </LinearLayout>
 
             <LinearLayout
