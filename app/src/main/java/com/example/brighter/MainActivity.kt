@@ -19,8 +19,6 @@ import androidx.core.app.ActivityCompat
 import com.dsphotoeditor.sdk.activity.DsPhotoEditorActivity
 import com.dsphotoeditor.sdk.utils.DsPhotoEditorConstants
 import com.example.brighter.databinding.ActivityMainBinding
-import com.google.android.gms.ads.AdRequest
-import com.google.android.gms.ads.MobileAds
 import kotlinx.android.synthetic.main.activity_main.*
 import java.io.ByteArrayOutputStream
 
@@ -36,11 +34,6 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         activityMainBinding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(activityMainBinding.root)
-
-        MobileAds.initialize(this) {}
-
-        val adRequest = AdRequest.Builder().build()
-        adView.loadAd(adRequest)
 
         requestPermission()
         btn_start.setOnClickListener {
