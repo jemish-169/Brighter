@@ -23,7 +23,11 @@ class Second_Activity : AppCompatActivity() {
         val imgRes = intent.getParcelableExtra<Uri>("ImageUri")
         activitySecondBinding.imageView3.setImageURI(imgRes)
 
-        Snackbar.make(activitySecondBinding.root, "Image saved successfully!", Snackbar.ANIMATION_MODE_SLIDE).show()
+        Snackbar.make(
+            activitySecondBinding.root,
+            "Image saved successfully!",
+            Snackbar.ANIMATION_MODE_SLIDE
+        ).show()
 
         backButton.setOnClickListener {
             finish()
@@ -60,6 +64,12 @@ class Second_Activity : AppCompatActivity() {
             }
             // start thread
             background.start()
+        }
+        linearLayout3.setOnClickListener {
+            startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://www.linkedin.com/in/jemish-khunt/")))
+        }
+        linearLayout2.setOnClickListener {
+            startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://www.instagram.com/elite_apps_/")))
         }
     }
 }
