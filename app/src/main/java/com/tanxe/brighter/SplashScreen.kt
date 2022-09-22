@@ -1,4 +1,4 @@
-package com.example.brighter
+package com.tanxe.brighter
 
 import android.content.Intent
 import android.os.Bundle

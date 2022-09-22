@@ -20,15 +20,6 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0" />
 
-    <ImageView
-        android:id="@+id/img"
-        android:layout_width="250dp"
-        android:layout_height="250dp"
-        android:scaleType="centerCrop"
-        android:src="@drawable/img_rem_bg"
-        app:layout_constraintBottom_toTopOf="@+id/textView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/textView"
@@ -39,6 +30,7 @@
         android:textAlignment="center"
         android:textColor="@color/luxurious"
         android:textSize="25sp"
+        android:layout_marginBottom="60dp"
         android:textStyle="normal"
         app:layout_constraintBottom_toTopOf="@+id/btn_start"
         app:layout_constraintEnd_toEndOf="parent"

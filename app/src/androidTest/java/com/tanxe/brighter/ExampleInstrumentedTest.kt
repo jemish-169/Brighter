@@ -1,4 +1,4 @@
-package com.example.brighter
+package com.tanxe.brighter
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4

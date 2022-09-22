@@ -1,4 +1,4 @@
-package com.example.brighter
+package com.tanxe.brighter
 
 import android.app.AlertDialog
 import android.content.Intent
@@ -9,7 +9,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
-import com.example.brighter.databinding.ActivitySecondBinding
+import com.tanxe.brighter.databinding.ActivitySecondBinding
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.activity_second.*
 

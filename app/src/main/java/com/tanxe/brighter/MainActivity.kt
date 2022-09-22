@@ -1,4 +1,4 @@
-package com.example.brighter
+package com.tanxe.brighter
 
 import android.Manifest
 import android.app.AlertDialog
@@ -18,7 +18,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import com.dsphotoeditor.sdk.activity.DsPhotoEditorActivity
 import com.dsphotoeditor.sdk.utils.DsPhotoEditorConstants
-import com.example.brighter.databinding.ActivityMainBinding
+import com.tanxe.brighter.databinding.ActivityMainBinding
 import kotlinx.android.synthetic.main.activity_main.*
 import java.io.ByteArrayOutputStream
 
