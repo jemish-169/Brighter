@@ -1,4 +1,4 @@
-# Brighter : Edit your photo with 40+ filters and 10 other tools.
+# Brighter : A photo editing app with 40+ filters and 12+ other tools.
 
 ## App Features :
 - **Filters** - Brighter app has 40+ cool filters.
