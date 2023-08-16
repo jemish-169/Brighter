@@ -34,11 +34,11 @@ class Second_Activity : AppCompatActivity() {
         }
         sharebutton.setOnClickListener {
 
-            var builder = AlertDialog.Builder(this@Second_Activity)
-            var view: View =
+            val builder = AlertDialog.Builder(this@Second_Activity)
+            val view: View =
                 LayoutInflater.from(this@Second_Activity).inflate(R.layout.share_layout, null)
             builder.setView(view)
-            var dialogS = builder.create()
+            val dialogS = builder.create()
             dialogS.window!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
             dialogS.setCancelable(false)
             dialogS.show()
@@ -58,17 +58,20 @@ class Second_Activity : AppCompatActivity() {
                         intent.putExtra(Intent.EXTRA_STREAM, imgRes)
                         intent.type = "image/jpeg"
                         startActivity(Intent.createChooser(intent, "Share Via:"))
-                    } catch (e: Exception) {
+                    } catch (_: Exception) {
                     }
                 }
             }
             // start thread
             background.start()
         }
-        linearLayout3.setOnClickListener {
+        mail.setOnClickListener {
+            startActivity(Intent(Intent.ACTION_SENDTO, Uri.parse("mailto:elite.apps169@gmail.com")))
+        }
+        linkedin.setOnClickListener {
             startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://www.linkedin.com/in/jemish-khunt/")))
         }
-        linearLayout2.setOnClickListener {
+        instagram.setOnClickListener {
             startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://www.instagram.com/elite_apps_/")))
         }
     }
