@@ -16,7 +16,7 @@
 
 ## Live Demo 🚀
 
-Experience the BookKart in action: [Live Demo](https://play.google.com/store/apps/details?id=com.tanxe.brighter) 🌐
+Experience the Brighter in action on Google Play: [https://play.google.com/store/apps/details?id=com.tanxe.brighter](https://play.google.com/store/apps/details?id=com.tanxe.brighter)
 
 
 ## 📸 Screenshots
