@@ -14,11 +14,6 @@
 - **Draw**
 - **Stickers**
 
-## Live Demo 🚀
-
-Experience the Brighter in action on Google Play: [https://play.google.com/store/apps/details?id=com.tanxe.brighter](https://play.google.com/store/apps/details?id=com.tanxe.brighter)
-
-
 ## 📸 Screenshots
 
 | Select or take image | Editior | Filters |
